@@ -1,0 +1,12 @@
+{
+  "name": "vr-chat",
+  "version": "1.0.0",
+  "main": "./server/easyrtc-server.js",
+  "scripts": {
+    "start": "node ./server/easyrtc-server.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "networked-aframe": "^0.5.1"
+  }
+}
