@@ -41,16 +41,20 @@
 </head>
 
 <body>
+
+
   <a-scene networked-scene="
       app: vrChat;
       room: default;
       debug: true;
     ">
     <a-assets>
+      <img id="avatar" src="img/weiwen2.jpg" crossorigin="anonymous" >
+      <p id="name" hidden>Something</p>
       <script id="avatar-template" type="text/html">
           <a-entity class="avatar">
             <a-box class="head"
-              src = "img/weiwen2.jpg"
+              src = "#avatar"
               scale="0.3 0.3 0.3"
             ></a-box><!--
             <a-entity class="face"
@@ -99,6 +103,27 @@
 
     <a-sky src="#sky" rotation="0 -90 0"></a-sky>
   </a-scene>
+
+  <script>
+    const avatar = document.getElementById('avatar') 
+    const name = document.getElementById('name')
+
+    const promptName = prompt('Please enter your name.')
+    const promptAvatar = prompt('Please enter your avatar URL.')
+
+    console.log('prompt = ' + promptName)
+    console.log('prompt = ' + promptAvatar)
+
+    if (promptName) {
+      name.textContent = promptName
+    }
+
+    avatar.src = promptAvatar ? promptAvatar : 'img/weiwen2.jpg'
+    if (promptAvatar) {
+      avatar.src = promptAvatar
+    }
+  </script>
+
 </body>
 
 </html>
